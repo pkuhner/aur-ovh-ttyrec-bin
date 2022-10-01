@@ -13,11 +13,11 @@ provides=('ttyrec')
 conflicts=('ttyrec')
 source=(
 	"${_pkgname}_${pkgver}_amd64.deb::https://github.com/ovh/${_pkgname}/releases/download/v${pkgver}/${_pkgname}_${pkgver}_amd64.deb"
-    "LICENSE::https://raw.githubusercontent.com/ovh/${_pkgname}/v${pkgver}/LICENSE"
+	"LICENSE::https://raw.githubusercontent.com/ovh/${_pkgname}/v${pkgver}/LICENSE"
 )
 sha256sums=(
 	'93e3a8e795c3e0942724d23bdb574509c12b603ae16bd1a9be81ef9ed62e7483'
-    '7e989e04eb9099e3be5b613a63f79744d275e26dea1392ce199e80ce3824960a'
+	'7e989e04eb9099e3be5b613a63f79744d275e26dea1392ce199e80ce3824960a'
 )
 noextract=("${_pkgname}_${pkgver}_amd64.deb")
 
@@ -28,8 +28,8 @@ prepare() {
 
 package() {
 	tar -xf "${_pkgname}/data.tar.xz" -C "${_pkgname}"
-    mkdir -p "$pkgdir/usr/bin"
+	mkdir -p "$pkgdir/usr/bin"
 	cp -r "$srcdir/${_pkgname}/usr/bin" "$pkgdir/usr/"
 
-    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
